@@ -2,10 +2,10 @@ import pandas as pd
 import os,re, joblib
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
-# from sklearn.naive_bayes import MultinomialNB
-# from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-# from sklearn.metrics import accuracy_score,classification_report
+from sklearn.metrics import accuracy_score,classification_report
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -49,33 +49,33 @@ x_train_tfidf = vectorizer.fit_transform(x_train)
 x_test_tfidf = vectorizer.transform(x_test)
 
 
-# #model training with naive bayes
-# model_nb = MultinomialNB()
-# model_nb.fit(x_train_tfidf,y_train)
+#model training with naive bayes
+model_nb = MultinomialNB()
+model_nb.fit(x_train_tfidf,y_train)
 
-# #prediction and evaluation through naive bayes
-# y_pred_nb = model_nb.predict(x_test_tfidf)
-# print("Naive Bayes accuracy",accuracy_score(y_test,y_pred_nb))
-# print(classification_report(y_test, y_pred_nb))
+#prediction and evaluation through naive bayes
+y_pred_nb = model_nb.predict(x_test_tfidf)
+print("Naive Bayes accuracy",accuracy_score(y_test,y_pred_nb))
+print(classification_report(y_test, y_pred_nb))
 
 
-# #model training using logistic regression 
-# model_lr = LogisticRegression(max_iter=1000)
-# model_lr.fit(x_train_tfidf,y_train)
+#model training using logistic regression 
+model_lr = LogisticRegression(max_iter=1000)
+model_lr.fit(x_train_tfidf,y_train)
 
-# #prediction and evaluation using logistic regression 
-# y_pred_lr = model_lr.predict(x_test_tfidf)
-# print("Logistic Regression accuracy: ", accuracy_score(y_test,y_pred_lr))
-# print(classification_report(y_test,y_pred_lr))
+#prediction and evaluation using logistic regression 
+y_pred_lr = model_lr.predict(x_test_tfidf)
+print("Logistic Regression accuracy: ", accuracy_score(y_test,y_pred_lr))
+print(classification_report(y_test,y_pred_lr))
 
 #model training using svm 
 model_svm = SVC()
 model_svm.fit(x_train_tfidf,y_train)
 
 #prediction and evaluation using svm 
-# y_pred_svm = model_svm.predict(x_test_tfidf)
-# print("SVM accuracy: ",accuracy_score(y_test,y_pred_svm))
-# print(classification_report(y_test,y_pred_svm))
+y_pred_svm = model_svm.predict(x_test_tfidf)
+print("SVM accuracy: ",accuracy_score(y_test,y_pred_svm))
+print(classification_report(y_test,y_pred_svm))
 #After checking all the model accuracy, SVM model has the highest accuracy of 0.9796905222437138
 
 #Save the model and vectorizer
@@ -191,4 +191,5 @@ footer_label = ttk.Label(footer_frame, text="Powered by SVM Model (Accuracy: 97.
 footer_label.pack()
 
 root.mainloop()
+
 
