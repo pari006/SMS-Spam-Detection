@@ -1,46 +1,64 @@
-# Spam SMS Detection Using SVC and Tkinter Interface
+# 📱 Spam SMS Detection Using SVC + Tkinter
 
-This project implements a spam SMS detection system using a Support Vector Classifier (SVC) with TF-IDF vectorization. It features a graphical user interface built with Tkinter for easy interaction.
-
----
-
-## Files in the Repository
-
-- **spam.csv**  
-  The dataset containing labeled SMS messages as spam or ham. This dataset is also available on Kaggle: [SMS Spam Collection Dataset](https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection)
-
-- **training_and_model.py**  
-  A single Python script that performs the entire workflow: data cleaning, model training using SVC and TF-IDF vectorizer, saving the trained model and vectorizer as `.pkl` files, and launching a Tkinter GUI for spam detection.
-
-- **svm_model.pkl**  
-  The trained SVC model saved using `joblib`.
-
-- **tfidf_vectorizer.pkl**  
-  The TF-IDF vectorizer saved using `joblib`.
+A machine learning project to classify SMS messages as **Spam** or **Ham (Not Spam)**.  
+It uses a **Support Vector Classifier (SVC)** with **TF-IDF vectorization** and provides a **Tkinter-based GUI** for real-time message classification.
 
 ---
 
-## How It Works
+## ✨ Features
 
-1. Running `training_and_model.py` loads and cleans the dataset (`spam.csv`), then trains the SVC model with TF-IDF features.
-2. The trained model and vectorizer are saved as `svm_model.pkl` and `tfidf_vectorizer.pkl`.
-3. After training, a Tkinter GUI window opens where you can input SMS messages.
-4. The GUI uses the saved model and vectorizer to classify messages as spam or ham in real-time.
+- ⚡ Detects whether an SMS is **Spam or Ham**.  
+- 🧹 Performs **data cleaning** (lowercasing, removing punctuation, stopwords, etc.).  
+- 🔎 Uses **TF-IDF vectorization** for feature extraction.  
+- 🤖 Trains a **Support Vector Classifier (SVC)** achieving **97% accuracy**.  
+- 🖥️ Includes a **Tkinter GUI** where users can enter SMS text and get predictions instantly.  
+- 💾 Saves trained model & vectorizer (`svm_model.pkl`, `tfidf_vectorizer.pkl`) for reuse.
+
+---
+
+## 📂 Files in the Repository
+
+- **spam.csv** → Dataset containing labeled SMS messages as spam/ham.  
+  (Dataset source: [UCI SMS Spam Collection Dataset](https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection))  
+
+- **training_and_model.py** → Main script:  
+  - Cleans & preprocesses dataset  
+  - Trains SVC + TF-IDF model  
+  - Saves model/vectorizer as `.pkl`  
+  - Launches Tkinter GUI for predictions  
+
+- **svm_model.pkl** → Saved SVC model.  
+
+- **tfidf_vectorizer.pkl** → Saved TF-IDF vectorizer.  
 
 ---
 
-## Requirements
+## ⚙️ How It Works
 
-- Python 3.x
-- Libraries:
-  - scikit-learn
-  - pandas
-  - joblib
-  - os
-  - re
-  - tkinter (usually included with Python)
+1. Load and preprocess dataset (`spam.csv`).  
+2. Vectorize text using **TF-IDF**.  
+3. Train a **Support Vector Classifier (SVC)**.  
+4. Save trained model and vectorizer.  
+5. Run **Tkinter GUI** → enter an SMS → model predicts **Spam/Ham** in real time.  
 
 ---
+
+## 🛠️ Requirements
+
+- Python 3.x  
+- Libraries:  
+  - scikit-learn  
+  - pandas  
+  - joblib  
+  - os  
+  - re  
+  - tkinter (comes pre-installed with Python)  
+
+Install dependencies:  
+
+```bash
+pip install scikit-learn pandas joblib
+```
 
 ## Installation
 
